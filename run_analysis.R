@@ -28,13 +28,13 @@ getFeatures <- function() {
 ################################################################################
 main <- function() {
 ################################################################################
-  test  <- getTest()
-  train <- getTrain()
+  test     <- getTest()
+  train    <- getTrain()
+  features <- getFeatures()
 
   # 1. Merge the training and the test sets to create one data set.
   rbind(test, training)
 
   # 2. Extracts only the measurements on the mean and standard deviation for each measurement.
-  features <- getFeatures()
-  features <- grep("mean|std", features$V2)
+  measuremnts <- features[grep("mean|std", features$V2),]
 }
