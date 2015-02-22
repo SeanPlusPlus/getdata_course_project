@@ -19,6 +19,9 @@ main <- function() {
   data <- rbind(test, train)
 
   # Extract only the measuremnts on the mean and standard deviation for each measurement.
-  measuremnts <- features[grep("mean|std", features$V2),]$V2
+  measurements <- features[grep("mean|std", features$V2),]$V2
   data[,measurements]
+
+  # write this out
+  write.table(data[,measurements], file = "tidy.txt", row.names = FALSE)
 }
